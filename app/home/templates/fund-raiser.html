@@ -1,0 +1,270 @@
+{% extends "layouts/base.html" %} {% block title %} Fund Raiser {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card ">
+            <div class="card-header">
+                <h4 class="card-title"> Simple Table</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{url_for('home_blueprint.pay')}}" method="POST">
+                    <div class="row">
+                        <div class="col-md-5 pr-md-1">
+                            <div class="form-group">
+                                <label>UserID (disabled)</label>
+                                <input type="text" class="form-control" disabled="" value="{{ current_user.id }}">
+                            </div>
+                        </div>F
+                        <div class="col-md-3 px-md-1">
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" value="{{ current_user.username }}">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pl-md-1">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" value="{{ current_user.email }}">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" value="">
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" value="">
+              </div>
+            </div>
+          </div> -->
+                    <!-- <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="Home Address">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-md-1">
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="City" value="">
+              </div>
+            </div>
+            <div class="col-md-4 px-md-1">
+              <div class="form-group">
+                <label>Country</label>
+                <input type="text" class="form-control" placeholder="Country" value="">
+              </div>
+            </div>
+            <div class="col-md-4 pl-md-1">
+              <div class="form-group">
+                <label>Postal Code</label>
+                <input type="number" class="form-control" placeholder="ZIP Code">
+              </div>
+            </div>
+          </div> -->
+                    <div class="row">
+                        <div class="col-md-2 pr-md-1">
+                            <div class="form-group">
+                                <label>Event ID (disabled)</label>
+                                <input type="text" class="form-control" disabled="" value="{{ current_user.id }}">
+                            </div>
+                        </div>
+                        <div class="col-md-5 pr-md-1">
+                            <div class="form-group">
+                                <label>Event Name</label>
+                                <input type="text" class="form-control" name="event_name" placeholder="Event Name" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-5 pr-md-1">
+                            <div class="form-group">
+                                <label for="date" class="col-sm-3 control-label">Date</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="date" name="date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 pr-md-1">
+                            <div class="form-group">
+                                <label>Target ampunt</label> (₹)
+                                <input type="number" class="form-control" name="target_amount" placeholder="₹ 00.00" step="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 10px 10px 0 0;">
+                        <div class="col-md-8">
+                            <div class="checkboxes">
+                                <input type="checkbox" id="receipt" class="checkbox" />
+                                <label for="receipt">Email Me A Receipt</label>
+                                <br />
+                                <input type="checkbox" id="anon" class="checkbox" />
+                                <label for="anon">Give Anonymously</label>
+                                <br />
+                                <input type="checkbox" id="list" class="checkbox" />
+                                <label for="list">Add Me To Email List</label>
+                            </div><br>
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 10px 0 0 0;">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Remarks (Optional)</label>
+                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-md-12">
+    <div class="card  card-plain">
+      <div class="card-header">
+        <h4 class="card-title"> Table on Plain Background</h4>
+        <p class="category"> Here is a subtitle for this table</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  City
+                </th>
+                <th class="text-center">
+                  Salary
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td class="text-center">
+                  $36,738
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Minerva Hooper
+                </td>
+                <td>
+                  Curaçao
+                </td>
+                <td>
+                  Sinaai-Waas
+                </td>
+                <td class="text-center">
+                  $23,789
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Sage Rodriguez
+                </td>
+                <td>
+                  Netherlands
+                </td>
+                <td>
+                  Baileux
+                </td>
+                <td class="text-center">
+                  $56,142
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Philip Chaney
+                </td>
+                <td>
+                  Korea, South
+                </td>
+                <td>
+                  Overland Park
+                </td>
+                <td class="text-center">
+                  $38,735
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Doris Greene
+                </td>
+                <td>
+                  Malawi
+                </td>
+                <td>
+                  Feldkirchen in Kärnten
+                </td>
+                <td class="text-center">
+                  $63,542
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Mason Porter
+                </td>
+                <td>
+                  Chile
+                </td>
+                <td>
+                  Gloucester
+                </td>
+                <td class="text-center">
+                  $78,615
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jon Porter
+                </td>
+                <td>
+                  Portugal
+                </td>
+                <td>
+                  Gloucester
+                </td>
+                <td class="text-center">
+                  $98,615
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_ui6SHylFxya3wB" data-amount="{{payment['amount']}}" data-currency="INR" data-order_id="{{payment['order_id']}}" data-buttontext="Click on save" data-name="{{event_details[0]}}"
+    data-image="/static/vk.jpg">
+</script>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

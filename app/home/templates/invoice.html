@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png"
+        href="https://app.freeinvoicebuilder.com/xfavicon.png.pagespeed.ic.x86BhfKNIB.webp">
+    <link class="app-stylesheet" rel="stylesheet" type="text/css" href="static/assets/invoice_template/style.css"
+        data-desktop="client/css/style.css?v=2" data-mobile="client/css/mobile-styles.css">
+    <link href="static/assets/invoice_template/css" rel="stylesheet">
+    <script type="text/javascript" async="" src="static/asset/invoice_template/f.txt"></script>
+    <script type="text/javascript" async="" src="static/assets/invoice_template/analytics.js.download"></script>
+    <script async="" src="static/assets/invoice_template/gtm.js.download"></script>
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-N3MMZXF');</script>
+    <!-- End Google Tag Manager -->
+    <script src="static/assets/invoice_template/f(1).txt"></script>
+</head>
+
+<body>
+    <div class="invoice editable">
+        <div class="sender-and-recipient">
+            <div class="invoice-contact-info">
+                <div class="invoice-sender editable-area sender-field tag-manager " data-action="Add Sender">
+                    <div class="invoice-title">From</div>
+                    <div id="needs-a-sender" class="editable-area-content">
+                        <div>{{name[0]}} {{name[1]}}<br>
+                            <span>{{email}}</span>
+                        </div>
+                    </div>
+                    <div class="editable-area-marker"></div>
+                    <div class="user-defined-data details-company" data-type="details_company">
+                        <div class="data"></div>
+                        <div class="ghost-button">
+                            <span class="text">Add company info</span>
+                            <span class="bubble"><span class="ti-pencil"></span></span>
+                        </div>
+                    </div>
+                    <div class="custom-field-area custom-field-area__sender" data-area="sender">
+                    </div>
+                </div>
+            </div>
+            <div class="invoice-client editable-area client_id-field tag-manager " data-action="Add client">
+                <div class="invoice-title">Invoice</div>
+                <div class="invoice-client-inner">
+                    <div id="" class="editable-area-content">
+                        <div>{{invoice_name}}<br>
+                            <span>&nbsp;</span><br>
+                            <span>&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="editable-area-marker"></div>
+                <div class="user-defined-data details-client" data-type="details_client">
+                    <div class="data"></div>
+                    <div class="ghost-button">
+                        <span class="text">Add client info</span>
+                        <span class="bubble"><span class="ti-pencil"></span></span>
+                    </div>
+                </div>
+                <div class="custom-field-area custom-field-area__receiver" data-area="receiver">
+                </div>
+            </div>
+        </div>
+        <div class="invoice-details">
+            <div class="invoice-meta">
+                <div>
+                    <span><span class="invoice-type-text">Invoice</span>No</span>
+                    <span class="  number-field">
+                        <input type="text" class="invoice-number-input inline-edit" value="001">
+                        <span class="editable-area-marker more-padding"></span>
+                    </span>
+
+                </div>
+                <div class="invoice-date">
+                    <span><span class="invoice-type-text">Invoice</span>Date</span>
+                    <div class="date-outer  ">
+                        <span class="date-text-placeholder">{{invoice_date}}</span>
+                        <input id="invoice-date-input" class="transparent date" type="text" title="Click to change date"
+                            value="Aug 16th, 2021">
+                        <div class="editable-area-marker"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="invoice-due-date">
+                <div class="due-text">Due:</div>
+                <div class="due-date  ">
+                    <span class="due-date-text-placeholder">Aug 16th,
+                        2021</span>
+                    <input id="invoice-due-date-input" class="transparent date" type="text" title="Click to change date"
+                        value="Aug 16th, 2021">
+                    <div class="editable-area-marker"></div>
+                </div>
+            </div>
+        </div>
+        <div class="user-defined-data details-description" data-type="details_description">
+            <div class="data"></div>
+            <div class="ghost-button">
+                <span class="text">Add description</span>
+                <span class="bubble"><span class="ti-pencil"></span></span>
+            </div>
+        </div>
+
+        <div class="custom-field-area custom-field-area__description" data-area="description">
+
+        </div>
+
+
+        <ul class="line-items connected-sortable">
+            <li class="invoice-items-header">
+                <div class="invoice-item">Item</div>
+                <div class="invoice-quantity">HRS/QTY</div>
+                <div class="invoice-rate">Rate</div>
+                <div class="invoice-tax-rate">Tax</div>
+                <div class="invoice-subtotal">Subtotal</div>
+            </li>
+            {% for i in range(5) %}
+            <li class="line-item" data-id="" data-cid="1629096389055-651841">
+                <div class="line-item__top">
+                    <div class="invoice-item">{{invoice_input[i][0]}}</div>
+                    <div class="invoice-quantity">{{invoice_input[i][1]}}</div>
+                    <div class="invoice-rate">{{invoice_input[i][2]}}</div>
+                    <div class="invoice-tax-rate">
+                        <div><span class="tax-percentage">({{invoice_input[i][3]}}%)</span></div>
+                    </div>
+                    <div class="invoice-subtotal">{{subtotal[i]}}</div>
+                    <div class="line-item-actions">
+                        <div class="edit-item  invoice-item-action" title="Edit item"></div>
+                        <div class="delete-item  invoice-item-action" title="Delete item"></div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            <li class="line-item editing" data-id="" data-cid="1629099664250-679531">
+                <div class="invoice-subtotal">&nbsp;</div>
+                <div class="invoice-description"><textarea class="line-item-input" name="description"
+                        placeholder="Description"></textarea>
+                </div>
+            </li>
+        </ul>
+        <div class="invoice-summary">
+            <div class="invoice-summary-inner">
+                <div class="summary-header invoice-row">
+                    <span class="invoice-type-text">Invoice</span> Summary
+                </div>
+                <div class="invoice-row total-row">
+                    <div>Total <span class="inline-currency-selector-outer editable-area">(<span
+                                class="inline-currency-selector">INR</span>)
+                            <span class="editable-area-marker"></span></span>
+                    </div>
+                    <div id="invoice-total">INR {{total}}</div>
+                </div>
+                <div class="payments-wrapper">
+                    <div class="invoice-payments-line-items">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom-field-area custom-field-area__terms" data-area="terms">
+        </div>
+        <div class="inline-terms invoice-terms">
+            <span class="editable-area-marker more-padding"></span>
+        </div>
+    </div>
+    
+    <a href="https://restpack.io/html2pdf/save-as-pdf?private=true" style="text-decoration: none;" target="_blank"
+        rel="nofollow">Save as PDF</a>
+    <script async src="https://restpack.io/save-as-pdf.js"></script>
+</body>
+
+</html>
