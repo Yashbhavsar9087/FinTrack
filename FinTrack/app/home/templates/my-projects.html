@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %} {% block title %} My Projects {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="title">Project status</h2>
+                <p class="category">Explore, Create, Conquer | Repeat</p>
+            </div>
+            <div class="card-body all-icons">
+                <div class="row">
+                    <div class="font-icon-list col-lg-6 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                        <a href="ongoing_project.html">
+                            <div class="font-icon-detail">
+                                <i style="font-size: 125px;" class="fas fa-tasks"></i>
+                                <p>Ongoing projects</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="font-icon-list col-lg-6 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                        <a href="upcoming_project.html">
+                            <div class="font-icon-detail">
+                                <i style="font-size: 125px;" class="fa fa-rocket" aria-hidden="true"></i>
+                                <p>Upcoming plans</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
