@@ -38,7 +38,11 @@ For future scope we will be making a notification feature which will be linked t
 ## TechStack :
 - HTML5
 - CSS3
-- 
+- JavaScript
+- JQuery
+- Flask ( Backend )
+- SQLalchemy
+- Web Scraping (Beautifulsoup4)
 
 ---
 ### **FinTrack** made with ❤ by Jay Jenil Yash
